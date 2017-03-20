@@ -1,0 +1,47 @@
+Part 1/2 (finding the hash that matches)
+1)	Hash the given last_solution_hash into a new hex digest.
+
+2)	Take the first 8 bytes.
+
+3)	Save them in reversed byte order (call it X for explanation purposes).
+------------------------------------------------------------------------------
+--Type [challenge_name: “sorted_list”]--
+4)	Generate nb_element (given) unsigned 64-bit random integers 
+(using Twister PRNG with X as its seed argument)
+
+5)	Sort those numbers from smallest to biggest.
+
+6)	Concatenate sorted numbers into one final_solution string.
+
+--Type [challenge_name: “reverse_sorted_list]--
+*) Same as above. Difference is in step #5
+
+5) reverse sort those numbers.
+
+--Type [challenge_name: “shortest_path”]--
+4)	Use given grid_size to construct the tiles of the grid.
+
+5)	Generate starting coordinate using PRNG with X as its seed argument. 
+While generated coordinate is a wall block, generate another one.
+
+6)	Generate ending coordinate using PRNG with X as its seed argument. 
+While generated coordinate is that of a wall block or is that of the starting 
+coordinate, generate another one.
+
+7)	Generate nb_blockers (given) blocker tiles coordinates using PRNG with X 
+as its seed argument. While generated coordinate is that of the starting coordinate, 
+or of the ending coordinate, or that of an already existing blocker, generate another 
+one.
+
+8)	Find the shortest path from starting coordinates to ending coordinates. 
+Use shortestPathChallenge.py to figure it out.
+
+9)	Concatenate coordinates of path in order into a single last_solution string.
+------------------------------------------------------------------------------
+lastStep-2) Hash the last_solution string from the last step.
+
+lastStep-1) Compare its first 4 chars with the given “hash_prefix”.
+
+lastStep) If (it matches)? End of part1 : Generate new random nonce and add it to 
+previous last_solution_hash to form a new last_solution_hash, then restart with step 1.
+
